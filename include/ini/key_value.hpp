@@ -62,16 +62,24 @@ public:
     Value(const std::string& str = ""){
         str_ = str;
     }
+
     Value(const char* str){
         str_ = str;
+    }
+
+    template <typename T>
+    Value(const T& val){
+        operator=(val);
     }
 
     void operator=(const std::string& rhs){
         str_ = rhs;
     }
+
     void operator=(const char* rhs){
         str_ = rhs;
     }
+
     template <typename T>
     void operator=(const T& rhs){
         str_.swap(std::to_string(rhs));
@@ -88,12 +96,15 @@ public:
     int toInt(void){
         return std::stoi(str_);
     }
+
     long long toLongLong(void){
         return std::stoll(str_);
     }
+
     float toFloat(void){
         return std::stof(str_);
     }
+    
     double toDouble(void){
         return std::stod(str_);
     }
