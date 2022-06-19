@@ -6,8 +6,8 @@ Efficient and flexible parser of .ini files which uses C++
 ## 已实现
 - 读取ini文件
 - 编辑ini对象
+- 值类型转换
 ## 计划中
 - 写入ini文件(有序)
 - 写入ini文件(保留顺序)
-- 值类型转换
 - ......
