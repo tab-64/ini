@@ -2,9 +2,7 @@
 #define __INI_HPP__
 
 #include <fstream>
-#include <map>
 #include <string>
-#include <sys/stat.h>
 #include <utility>
 
 #include "ini/key_value.hpp"
@@ -48,12 +46,18 @@ public:
         return *sections_->operator[](name);
     }
 
+    SectionsPtr sections(void){
+        return sections_;
+    }
+
     size_t size(void) {
         return sections_->size();
     }
 
-    SectionsPtr sections(void){
-        return sections_;
+    void swap(ini& s){
+        filename_.swap(s.filename_);
+        file_.swap(s.file_);
+        sections_.swap(s.sections_);
     }
 
     void modify(void){
