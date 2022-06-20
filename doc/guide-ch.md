@@ -2,6 +2,8 @@
 如何使用本工具进行 .ini 文件的处理 
 ## 快速入门
 您可以使用 ini 类进行对 .ini 文件的操作, 详细使用方法如下 
+0. 首先, 您需要包含 ini.hpp
+`#include "ini/ini.hpp"`
 1. 构造 ini 对象: 
 `tab::ini myProfile("MyFilename");`
 2. 访问某个值: 
