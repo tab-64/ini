@@ -52,6 +52,10 @@ public:
         return sections_->size();
     }
 
+    SectionsPtr sections(void){
+        return sections_;
+    }
+
     void modify(void){
 
     }

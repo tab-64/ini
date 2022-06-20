@@ -16,13 +16,32 @@ namespace tab{
 using SectionPtr  = std::shared_ptr<Section>;
 using SectionsPtr = std::shared_ptr<std::map<std::string, SectionPtr>>;
 
+class Writer{
+public: 
+    Writer(const SectionsPtr& src){
+        sections_ = src;
+    }
+
+    template <typename _Stream>
+    void write_order(_Stream& stream){
+        for(auto i = sections_->begin(); i != sections_->end(); ++i){
+            stream << '[' << i->first << "]\n";
+            for(auto j = i->second->begin(); j != i->second->end(); ++j){
+                stream << j->first.str() << " = " << j->second.val() << std::endl;
+            }
+        }
+    }
+private:
+    SectionsPtr sections_;
+
+};
+
 //
 // INIParser is a template class, which allows you to use different kinds of streams. 
 // The stream must have these methods: 
 // -- eof()
 // -- getline() 
 // -- swap()
-// -- operator<<()
 //
 template <typename _Stream>
 class INIParser{
@@ -38,18 +57,6 @@ public:
         return sections_;
     }
 
-    virtual void write_order(void){
-        for(auto i = sections_->begin(); i != sections_->end(); ++i){
-            stream_ << '[' << i->first << "]\n";
-            for(auto j = i->second->begin(); j != i->second->end(); ++j){
-                stream_ << j->first.str() << " = " << j->second.val() << std::endl;
-            }
-        }
-    }
-
-    virtual void write_disorder(void){
-        
-    }
 protected:
     _Stream stream_;
     SectionsPtr sections_;
