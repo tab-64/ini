@@ -22,6 +22,7 @@ using SectionsPtr = std::shared_ptr<std::map<std::string, SectionPtr>>;
 // -- eof()
 // -- getline() 
 // -- swap()
+// -- operator<<()
 //
 template <typename _Stream>
 class INIParser{
@@ -38,11 +39,16 @@ public:
     }
 
     virtual void write_order(void){
-
+        for(auto i = sections_->begin(); i != sections_->end(); ++i){
+            stream_ << '[' << i->first << "]\n";
+            for(auto j = i->second->begin(); j != i->second->end(); ++j){
+                stream_ << j->first.str() << " = " << j->second.val() << std::endl;
+            }
+        }
     }
 
     virtual void write_disorder(void){
-
+        
     }
 protected:
     _Stream stream_;

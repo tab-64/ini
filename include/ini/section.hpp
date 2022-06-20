@@ -10,6 +10,9 @@
 namespace tab{
 
 class Section{
+private:
+    using _pairs = std::map<Key, Value>;
+    
 public:
     explicit Section(const std::string& name = ""){
         name_ = name;
@@ -51,6 +54,14 @@ public:
         return pairs_.at(key);
     }
 
+    _pairs::iterator begin(void){
+        return pairs_.begin();
+    }
+
+    _pairs::iterator end(void){
+        return pairs_.end();
+    }
+
     std::string name(void){
         return name_;
     }
@@ -58,11 +69,10 @@ public:
     size_t size(void){
         return pairs_.size();
     }
-private:
-    
+
 private:
     std::string name_;
-    std::map<Key, Value> pairs_;
+    _pairs pairs_;
 };
 
 
