@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ini/ini.hpp"
+#include "ini.hpp"
 
 using namespace std;
 
