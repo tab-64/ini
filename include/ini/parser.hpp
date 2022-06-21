@@ -70,8 +70,8 @@ protected:
         while(!stream_.eof()){
             std::getline(stream_, buffer);
 
-            // The start of a line is character '#' means that this line is an annotation.
-            if(buffer[0] == '#')
+            // The start of a line is character ';' means that this line is an annotation.
+            if(buffer[0] == ';')
                 continue;
             
             // The start of a line is character '[' means that this line is a beginning of a section.
@@ -112,7 +112,7 @@ protected:
                         break;
                         
                 for(; i != buffer.end(); ++i){
-                    if(*i == '#')
+                    if(*i == ';')
                         break;
                     value.push_back(*i);
                 }
