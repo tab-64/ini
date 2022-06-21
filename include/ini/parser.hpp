@@ -70,7 +70,7 @@ protected:
         while(!stream_.eof()){
             std::getline(stream_, buffer);
 
-            // The start of a line is character ';' means that this line is an annotation.
+            // The start of a line is character ';' means that this line is a comment.
             if(buffer[0] == ';')
                 continue;
             

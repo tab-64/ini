@@ -1,17 +1,18 @@
-# Ê¹ÓÃÖ¸ÄÏ ¼òÌåÖÐÎÄ
-ÈçºÎÊ¹ÓÃ±¾¹¤¾ß½øÐÐ .ini ÎÄ¼þµÄ´¦Àí 
-## ¿ìËÙÈëÃÅ
-Äú¿ÉÒÔÊ¹ÓÃ ini Àà½øÐÐ¶Ô .ini ÎÄ¼þµÄ²Ù×÷, ÏêÏ¸Ê¹ÓÃ·½·¨ÈçÏÂ: 
-1. Ê×ÏÈ, ÄúÐèÒª°üº¬ ini.hpp: 
+# ä½¿ç”¨æŒ‡å— ç®€ä½“ä¸­æ–‡
+å¦‚ä½•ä½¿ç”¨æœ¬å·¥å…·è¿›è¡Œ .ini æ–‡ä»¶çš„å¤„ç† 
+
+## å¿«é€Ÿå…¥é—¨
+æ‚¨å¯ä»¥ä½¿ç”¨ ini ç±»è¿›è¡Œå¯¹ .ini æ–‡ä»¶çš„æ“ä½œ, è¯¦ç»†ä½¿ç”¨æ–¹æ³•å¦‚ä¸‹: 
+1. é¦–å…ˆ, æ‚¨éœ€è¦åŒ…å« ini.hpp: 
 `#include "ini/ini.hpp"`
-2. ¹¹Ôì ini ¶ÔÏó: 
+2. æž„é€  ini å¯¹è±¡: 
 `tab::ini myProfile("MyFilename");`
-3. ·ÃÎÊÄ³¸öÖµ: 
+3. è®¿é—®æŸä¸ªå€¼: 
 `tab::Value val = myProfile["MySection"](MyKey);` 
-Äú¿ÉÒÔ½«ValueÀàÐÍµÄÖµ×ª»»Îª×Ö·û´®»òÊÇÆäËûC++»ù±¾ÀàÐÍ, Ö»ÐèÕâÑù: 
+æ‚¨å¯ä»¥å°†Valueç±»åž‹çš„å€¼è½¬æ¢ä¸ºå­—ç¬¦ä¸²æˆ–æ˜¯å…¶ä»–C++åŸºæœ¬ç±»åž‹, åªéœ€è¿™æ ·: 
 ~~~C++
-std::string str = val.val(); // ×ª»»µ½×Ö·û´®
-int iVal = val.toInt(); // ×ª»»µ½int
+std::string str = val.val(); // è½¬æ¢åˆ°å­—ç¬¦ä¸²
+int iVal = val.toInt(); // è½¬æ¢åˆ°int
 ......
 ~~~
 ---------------------------------
