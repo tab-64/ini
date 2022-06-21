@@ -23,7 +23,7 @@ public:
         filename_ = filename;
         if(!Tools::isFileExist(filename))
             Tools::createFile(filename_);
-        file_.open(filename);
+        file_.open(filename, std::ios::in | std::ios::out);
         sections_ = FileParser(file_).sections();
     }
 
@@ -44,7 +44,9 @@ public:
     }
 
     Section& operator[](const std::string& name){
-        return *sections_->operator[](name);
+        if(sections_->find(name) == sections_->end())
+            sections_->insert({name, SectionPtr(new Section(name))});
+        return *sections_->at(name);
     }
 
     SectionsPtr sections(void){
@@ -63,6 +65,7 @@ public:
 
     //!!! IMPORTANT: This method will ignore all your comments and the original sequence.
     void modify(void){
+        file_.seekp(0, std::ios::beg);
         Writer(sections_).write_order(file_);
     }
 

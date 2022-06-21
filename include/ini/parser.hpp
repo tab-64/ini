@@ -30,6 +30,7 @@ public:
                 stream << j->first.str() << " = " << j->second.val() << std::endl;
             }
         }
+        stream.flush();
     }
 private:
     SectionsPtr sections_;
@@ -50,7 +51,8 @@ public:
         stream_.swap(stream); // The constructor needs to use the offered stream.
         sections_.reset(new std::map<std::string, SectionPtr>);
         _parse();
-        stream_.swap(stream); // Give the stream back. We do not need it anymore.
+        stream_.clear();
+        stream.swap(stream_); // Give the stream back. We do not need it anymore.
     }
 
     virtual SectionsPtr& sections(void){
