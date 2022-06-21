@@ -61,8 +61,9 @@ public:
         sections_.swap(s.sections_);
     }
 
+    //!!! IMPORTANT: This method will ignore all your comments and the original sequence.
     void modify(void){
-
+        Writer(sections_).write_order(file_);
     }
 
 private:
