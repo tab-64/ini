@@ -17,5 +17,5 @@ Efficient and flexible parser of .ini files which uses C++
 - 写入ini文件(保留顺序)
 - ......
 
-## 喜欢的话请点亮星星, 谢谢.
-## 如有问题, 欢迎提出
+### 喜欢的话烦请点亮小星星, 谢谢.
+### 如有问题, 欢迎提出
